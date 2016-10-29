@@ -93,6 +93,40 @@ Type: `boolean`
 Type: `string`<br>
 Default: `-[match]w`
 
+#### sizes
+
+Type: `string`<br>
+Default: `''`
+
+This value specifies the a width descriptor value to srcset, and sizes will be inserted into the case of the sky.
+
+ex)
+
+Task
+
+``` js
+gulp.task('sugar-srcset', () =>
+  gulp.src(html)
+    .pipe(srcset({ sizes: '50vw' }))
+    .pipe(gulp.dest(output);
+);
+```
+
+Before
+
+```html
+<img src="path/to/image.png" srcset="320w, 640w" alt="">
+<img src="path/to/image.png" sizes="100vw" srcset="320w, 640w" alt="">
+```
+
+After
+
+```html
+<img src="path/to/image-320w.png" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="" sizes="50vw">
+<img src="path/to/image-320w.png" sizes="100vw" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="">
+```
+
+
 #### responsiveWidth
 
 Type: `Array`<br>
