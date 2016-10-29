@@ -3,21 +3,7 @@ const main = require('../lib/main');
 
 const pfx = '[srcset]';
 
-const case1 = {
-    baseSrcset: true,
-    baseSrc: true,
-    resolution: true,
-    resolutionSuffix: '@[match]x',
-    pixelRatio: [1, 2, 3, 4],
-    skip1x: true,
-    skip1xSuffix: true,
-    force1xSrc: true,
-    responsive: true,
-    responsiveSuffix: '-[match]w',
-    responsiveWidth: [320, 640],
-    responsiveSrcReplace: 0,
-    removeSrc: false
-};
+const case1 = require('../lib/defaultConfig');
 
 test(`${pfx} Not use.`, t => {
     const html = `<img src="path/to/filename.png">`;
