@@ -1,5 +1,6 @@
 # gulp-sugar-srcset
 
+[![npm version](https://badge.fury.io/js/gulp-sugar-srcset.svg)](https://badge.fury.io/js/gulp-sugar-srcset)
 [![Build Status](https://travis-ci.org/Tsuguya/gulp-sugar-srcset.svg?branch=master)](https://travis-ci.org/Tsuguya/gulp-sugar-srcset)
 
 Sugar for srcset attributes of the image tag.
