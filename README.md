@@ -40,23 +40,10 @@ gulp.task('sugar-srcset', () =>
 
 ## Options
 
-#### srcset([options])
-
-#### baseSrcset
-
-Type: `boolean`
-
-Do not check for `srcset` when the false.
-
-#### baseSrc
-
-Type: `boolean`
-
-Do not check for `src` when the false.
-
 #### resolution
 
-Type: `boolean`
+Type: `Object`<br>
+Default: `{ src: true, srcset: true }`
 
 Do not check for display pixel ratio when the false.
 
@@ -80,13 +67,35 @@ If srcset is 1x, omitted.
 
 Type: `boolean`
 
+#### resolutionSrcReplace
+
+Type: `number`
+Default: `1`
+
 #### force1xSrc
 
 Type: `boolean`
 
 #### responsive
 
-Type: `boolean`
+Type: `Object`<br>
+Default: `{ src: true, srcset: false }`
+
+#### responsiveWidth
+
+Type: `Array`<br>
+Default `[]`
+
+Only be used if `responsive.src: true`.
+
+ex)
+
+```js
+srcset({
+    responsive: { src: true },
+    responsiveWidth: [320, 640]
+})
+```
 
 #### responsiveSuffix
 
@@ -127,15 +136,10 @@ After
 ```
 
 
-#### responsiveWidth
-
-Type: `Array`<br>
-Default: `[320, 640]`
-
 #### responsiveSrcReplace
 
 Type: `number`<br>
-Default: `0`
+Default: `-1`
 
 #### removeSrc
 
