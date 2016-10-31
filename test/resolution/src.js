@@ -19,15 +19,11 @@ const case4 = Object.assign({}, case1, {
 });
 
 const case5 = Object.assign({}, case1, {
-    force1xSrc: false
+    resolutionSrcReplace: -1
 });
 
 const case6 = Object.assign({}, case1, {
-    resolution: false
-});
-
-const case7 = Object.assign({}, case1, {
-    baseSrc: false
+    resolution: { src: false, srcset: true }
 });
 
 const txt = {
@@ -35,9 +31,8 @@ const txt = {
     case2: `[case2 - skip1x: false -]`,
     case3: `[case3 - skip1xSuffix: false -]`,
     case4: `[case4 - case 2 + 3 -]`,
-    case5: `[case5 - force1xSrc: false -]`,
-    case6: `[case6 - resolution: false -]`,
-    case7: `[case7 - baseSrc: false -]`,
+    case5: `[case5 - resolutionSrcReplace: -1 -]`,
+    case6: `[case6 - resolution: { src: false, srcset: true } -]`
 };
 
 
@@ -87,14 +82,6 @@ test(`${pfx} Basic src pattern. use ${txt.case6}`, t => {
     const correct = `<img src="path/to/filename@3x.png">`;
 
     t.equal(main(html, case6), correct);
-    t.end();
-});
-
-test(`${pfx} Basic src pattern. use ${txt.case7}`, t => {
-    const html = `<img src="path/to/filename@3x.png">`;
-    const correct = `<img src="path/to/filename@3x.png">`;
-
-    t.equal(main(html, case7), correct);
     t.end();
 });
 
