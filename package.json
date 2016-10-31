@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test": "tape 'test/**/*.js'",
+    "test-config": "tape 'test/config.js' || true",
     "test-common": "tape 'test/common.js' | tap-diff || true",
     "test-resolution": "tape 'test/resolution/*.js' | tap-diff || true",
     "test-resolution-src": "tape 'test/resolution/src.js' | tap-diff || true",

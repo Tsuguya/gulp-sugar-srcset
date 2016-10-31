@@ -1,9 +1,10 @@
 const test = require('tape');
 const main = require('../../lib/main');
+const options = require('../../lib/options');
 
 const pfx = '[src]';
 
-const case1 = Object.assign(require('../../lib/defaultConfig'), {
+const case1 = options({
     responsive: { src: true, srcset: true },
     responsiveWidth: [320, 640],
     responsiveSrcReplace: 320

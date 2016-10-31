@@ -1,9 +1,10 @@
 const test = require('tape');
 const main = require('../lib/main');
+const options = require('../lib/options');
 
 const pfx = '[srcset]';
 
-const case1 = require('../lib/defaultConfig');
+const case1 = options();
 
 test(`${pfx} Not use.`, t => {
     const html = `<img src="path/to/filename.png">`;
