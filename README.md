@@ -72,10 +72,6 @@ Type: `boolean`
 Type: `number`
 Default: `1`
 
-#### force1xSrc
-
-Type: `boolean`
-
 #### responsive
 
 Type: `Object`<br>
@@ -104,10 +100,11 @@ Default: `-[match]w`
 
 #### sizes
 
-Type: `string`<br>
-Default: `''`
+Type: `Object`<br>
+Default: `{ add: '' }`
 
-This value specifies the a width descriptor value to srcset, and sizes will be inserted into the case of the sky.
+Is the alias that can be used in sizes.<br>
+"add" value you put in will be added when there are no sizes, or empty.
 
 ex)
 
