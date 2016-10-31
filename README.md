@@ -11,8 +11,7 @@ Sugar for srcset attributes of the image tag.
 <img src="path/to/image.png" srcset="2x, 3x" alt="">
 <img src="path/to/image@2x.png" alt="">
 
-<img src="path/to/image.png" sizes="100vw" srcset="320w, 640w, 980w" alt="">
-<img src="path/to/image-320w.png" sizes="100vw" alt="">
+<img src="path/to/image-320w.png" sizes="100vw" srcset="320w, 640w, 980w" alt="">
 ```
 
 Output:
@@ -22,7 +21,6 @@ Output:
 <img src="path/to/image.png" srcset="path/to/image@2x.png 2x,path/to/image@3x.png 3x,path/to/image@4x.png 4x" alt="">
 
 <img src="path/to/image-320w.png" sizes="100vw" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w,path/to/image-980w.png 980w" alt="">
-<img src="path/to/image-320w.png" sizes="100vw" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="">
 ```
 
 ## Usage
@@ -108,28 +106,28 @@ Is the alias that can be used in sizes.<br>
 
 ex)
 
-Task
-
 ``` js
-gulp.task('sugar-srcset', () =>
-  gulp.src(html)
-    .pipe(srcset({ sizes: '50vw' }))
-    .pipe(gulp.dest(output);
-);
+srcset({
+    sizes: {
+        add: '50vw',
+        sp: '(max-width: 320px) 100vw',
+        pc: '320px'
+    }
+})
 ```
 
 Before
 
 ```html
 <img src="path/to/image.png" srcset="320w, 640w" alt="">
-<img src="path/to/image.png" sizes="100vw" srcset="320w, 640w" alt="">
+<img src="path/to/image.png" sizes="sp, pc" srcset="320w, 640w" alt="">
 ```
 
 After
 
 ```html
-<img src="path/to/image-320w.png" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="" sizes="50vw">
-<img src="path/to/image-320w.png" sizes="100vw" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="">
+<img src="path/to/image.png" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="" sizes="50vw">
+<img src="path/to/image.png" sizes="(max-width: 320px) 100vw,320px" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="">
 ```
 
 
