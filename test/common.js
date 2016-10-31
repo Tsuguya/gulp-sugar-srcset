@@ -7,23 +7,23 @@ const pfx = '[srcset]';
 const case1 = options();
 
 test(`${pfx} Not use.`, t => {
-    const html = `<img src="path/to/filename.png">`;
-    const correct = `<img src="path/to/filename.png">`;
+  const html = `<img src="path/to/filename.png">`;
+  const correct = `<img src="path/to/filename.png">`;
 
-    t.equal(main(html, case1), correct);
-    t.end();
+  t.equal(main(html, case1), correct);
+  t.end();
 });
 
 test(`${pfx} Query.`, t => {
-    const html = `<img src="path/to/filename@2x.png?foo=bar">`;
-    const correct = `<img src="path/to/filename.png?foo=bar" srcset="path/to/filename@2x.png?foo=bar 2x">`;
+  const html = `<img src="path/to/filename@2x.png?foo=bar">`;
+  const correct = `<img src="path/to/filename.png?foo=bar" srcset="path/to/filename@2x.png?foo=bar 2x">`;
 
-    t.equal(main(html, case1), correct);
-    t.end();
+  t.equal(main(html, case1), correct);
+  t.end();
 });
 
 test(`${pfx} Multi line check.`, t => {
-    const html = `<!doctype html>
+  const html = `<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,7 +40,7 @@ test(`${pfx} Multi line check.`, t => {
 </div>
 </body>
 </html>`;
-    const correct = `<!doctype html>
+  const correct = `<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -58,6 +58,6 @@ test(`${pfx} Multi line check.`, t => {
 </body>
 </html>`;
 
-    t.equal(main(html, case1), correct);
-    t.end();
+  t.equal(main(html, case1), correct);
+  t.end();
 });
