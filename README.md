@@ -140,3 +140,17 @@ Default: `-1`
 
 Type: `boolean`<br>
 Default: `false`
+
+#### picture.media
+
+Type: `Object`<br>
+Default: `{}`
+
+Is the alias that can be used in media.<br>
+Valid only in the source tag with a picture tag to the parent.
+
+#### picture.extend
+
+Type: `boolean`<br>
+Default: `true`
+
