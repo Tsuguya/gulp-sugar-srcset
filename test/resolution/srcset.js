@@ -55,7 +55,7 @@ test(`${pfx} Basic src pattern.(resolution) use ${txt.case1}`, t => {
 
 test(`${pfx} Basic src pattern.(resolution) use ${txt.case2}`, t => {
   const html = `<img src="path/to/filename.png" srcset="1x, 2x, 3x">`;
-  const correct = `<img src="path/to/filename.png" srcset="path/to/filename.png 1x,path/to/filename@2x.png 2x,path/to/filename@3x.png 3x">`;
+  const correct = `<img src="path/to/filename.png" srcset="path/to/filename.png,path/to/filename@2x.png 2x,path/to/filename@3x.png 3x">`;
 
   t.equal(main(html, case2), correct);
   t.end();
@@ -71,7 +71,7 @@ test(`${pfx} Basic src pattern.(resolution) use ${txt.case3}`, t => {
 
 test(`${pfx} Basic src pattern.(resolution) use ${txt.case4}`, t => {
   const html = `<img src="path/to/filename.png" srcset="1x, 2x, 3x">`;
-  const correct = `<img src="path/to/filename@1x.png" srcset="path/to/filename@1x.png 1x,path/to/filename@2x.png 2x,path/to/filename@3x.png 3x">`;
+  const correct = `<img src="path/to/filename@1x.png" srcset="path/to/filename@1x.png,path/to/filename@2x.png 2x,path/to/filename@3x.png 3x">`;
 
   t.equal(main(html, case4), correct);
   t.end();
@@ -120,7 +120,7 @@ test(`${pfx} Src set suffix pattern.(resolution) use ${txt.case1}`, t => {
 
 test(`${pfx} Src set suffix pattern.(resolution) use ${txt.case2}`, t => {
   const html = `<img src="path/to/filename@2x.png" srcset="1x, 2x, 3x">`;
-  const correct = `<img src="path/to/filename.png" srcset="path/to/filename.png 1x,path/to/filename@2x.png 2x,path/to/filename@3x.png 3x">`;
+  const correct = `<img src="path/to/filename.png" srcset="path/to/filename.png,path/to/filename@2x.png 2x,path/to/filename@3x.png 3x">`;
 
   t.equal(main(html, case2), correct);
   t.end();
