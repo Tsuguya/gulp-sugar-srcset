@@ -12,6 +12,12 @@ Sugar for srcset attributes of the image tag.
 <img src="path/to/image@2x.png" alt="">
 
 <img src="path/to/image-320w.png" sizes="100vw" srcset="320w, 640w, 980w" alt="">
+
+<picture>
+  <source src="path/to/filename-large.png" media="(min-width: 1000px)" srcset="1x, 2x, 3x">
+  <source src="path/to/filename-medium.png" media="(min-width: 800px)" srcset="1x, 2x, 3x">
+  <img src="path/to/filename-small.png" srcset="1x, 2x, 3x" alt="">
+</picture>
 ```
 
 Output:
@@ -21,6 +27,12 @@ Output:
 <img src="path/to/image.png" srcset="path/to/image@2x.png 2x,path/to/image@3x.png 3x,path/to/image@4x.png 4x" alt="">
 
 <img src="path/to/image-320w.png" sizes="100vw" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w,path/to/image-980w.png 980w" alt="">
+
+<picture>
+  <source media="(min-width: 1000px)" srcset="path/to/filename-large.png,path/to/filename-large@2x.png 2x,path/to/filename-large@3x.png 3x">
+  <source media="(min-width: 800px)" srcset="path/to/filename-medium.png,path/to/filename-medium@2x.png 2x,path/to/filename-medium@3x.png 3x">
+  <img src="path/to/filename-small.png" srcset="path/to/filename-small@2x.png 2x,path/to/filename-small@3x.png 3x" alt="">
+</picture>
 ```
 
 ## Usage
