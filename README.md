@@ -24,7 +24,7 @@ Output:
 
 ```html
 <img src="path/to/image.png" srcset="path/to/image@2x.png 2x,path/to/image@3x.png 3x" alt="">
-<img src="path/to/image.png" srcset="path/to/image@2x.png 2x,path/to/image@3x.png 3x,path/to/image@4x.png 4x" alt="">
+<img src="path/to/image.png" srcset="path/to/image@2x.png 2x" alt="">
 
 <img src="path/to/image-320w.png" sizes="100vw" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w,path/to/image-980w.png 980w" alt="">
 
@@ -66,6 +66,8 @@ Default: `@[match]x`
 
 Type: `Array`<br>
 Default: `[1, 2, 3, 4]`
+
+src based filtering list.
 
 #### skip1x
 
@@ -153,6 +155,8 @@ Default: `-1`
 Type: `boolean`<br>
 Default: `false`
 
+If true, removing the src attribute from the image tag
+
 #### picture.media
 
 Type: `Object`<br>
@@ -161,8 +165,41 @@ Default: `{}`
 Is the alias that can be used in media.<br>
 Valid only in the source tag with a picture tag to the parent.
 
+ex)
+
+``` js
+srcset({
+    media: {
+        large: '(max-width: 1600px)',
+        medium: '(max-width: 900px)'
+    }
+})
+```
+
+Before
+
+```html
+<picture>
+  <source src="image-large.png" media="large">
+  <source src="image-medium.png" media="medium">
+  <img src="image.png" alt="" srcset="2x, 3x, 4x">
+</picture>
+```
+
+After
+
+```html
+<picture>
+  <source media="(max-width: 1600px)" srcset="image-large.png,image-large@2x.png 2x,image-large@3x.png 3x,image-large@4x.png 4x">
+  <source media="(max-width: 900px)" srcset="image-medium.png,image-medium.png@2x 2x,image-medium.png@3x 3x,image-medium.png@4x 4x">
+  <img src="image.png" alt="" srcset="image@2x.png 2x,image@2x.png 3x,image@2x.png 4x">
+</picture>
+```
+
 #### picture.extend
 
 Type: `boolean`<br>
 Default: `true`
 
+If you true, to use the src attribute of the source tag.<br>
+After use, delete it.
