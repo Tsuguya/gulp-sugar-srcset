@@ -5,6 +5,12 @@
 
 Sugar for srcset attributes of the image tag.
 
+## Install
+
+```
+$ npm install --save-dev gulp-sugar-srcset
+```
+
 ## How it works
 
 ```html
@@ -49,6 +55,8 @@ gulp.task('sugar-srcset', () =>
 ```
 
 ## Options
+
+It is the quickest to refer to [test case](https://github.com/Tsuguya/gulp-sugar-srcset/tree/master/test).
 
 #### resolution
 
