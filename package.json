@@ -15,9 +15,9 @@
     "test-resolution": "tape 'test/resolution/*.js' | tap-diff || true",
     "test-resolution-src": "tape 'test/resolution/src.js' | tap-diff || true",
     "test-resolution-srcset": "tape 'test/resolution/srcset.js' | tap-diff || true",
-    "test-responsive": "tape 'test/width/*.js' | tap-diff || true",
-    "test-responsive-src": "tape 'test/width/src.js' | tap-diff || true",
-    "test-responsive-srcset": "tape 'test/width/srcset.js' | tap-diff || true"
+    "test-responsive": "tape 'test/responsive/*.js' | tap-diff || true",
+    "test-responsive-src": "tape 'test/responsive/src.js' | tap-diff || true",
+    "test-responsive-srcset": "tape 'test/responsive/srcset.js' | tap-diff || true"
   },
   "keywords": [
     "gulpplugin",
