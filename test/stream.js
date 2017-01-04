@@ -11,7 +11,7 @@ test('Stream test', t => {
     base: path.join(__dirname, './fixtures/'),
     cwd: __dirname,
     path: path.join(__dirname, './fixtures/test.coffee'),
-    contents: new Buffer(`<img src="path/to/filename.png" srcset="3x">`)
+    contents: new Buffer(`<img src="path/to/filename.png" srcset="3x" alt="dummy">`)
   });
 
   const stream = index();
@@ -24,7 +24,7 @@ test('Stream test', t => {
 
   stream.once('data', function(f) {
     t.ok(f.isBuffer());
-    t.equal(String(f.contents), `<img src="path/to/filename.png" srcset="path/to/filename@3x.png 3x">`);
+    t.equal(String(f.contents), `<img src="path/to/filename.png" srcset="path/to/filename@3x.png 3x" alt="dummy">`);
     t.end();
   });
 

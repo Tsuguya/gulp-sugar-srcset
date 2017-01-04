@@ -6,24 +6,20 @@ const pfx = '[picture]';
 
 const case1 = options();
 const case2 = options({
-  picture: {
-    media: {
-      large: '(min-width: 1000px)',
-      medium: '(min-width: 800px)'
-    }
+  replace: {
+    large: '(min-width: 1000px)',
+    medium: '(min-width: 800px)'
   }
 });
 const case3 = options({
   picture: { extend: false }
 });
 const case4 = options({
-  picture: {
-    media: {
-      large: '(min-width: 1000px)',
-      medium: '(min-width: 800px)'
-    },
-    extend: false
-  }
+  replace: {
+    large: '(min-width: 1000px)',
+    medium: '(min-width: 800px)'
+  },
+  picture: { extend: false }
 });
 const case5 = options({
   responsiveSrcReplace: 320
@@ -38,26 +34,29 @@ const case7 = options({
 const case8 = options({
   responsive: true,
   responsiveWidth: [320, 640, 900],
-  picture: {
-    media: {
-      large: '(min-width: 1000px)',
-      medium: '(min-width: 800px)'
-    }
+  replace: {
+    large: '(min-width: 1000px)',
+    medium: '(min-width: 800px)'
   }
 });
 
 const txt = {
   case1: `[case1]`,
-  case2: `[case2 - picture.media: { large: '(min-width: 1000px)', medium: '(min-width: 800px)' } -]`,
+  case2: `[case2 - replace: { large: '(min-width: 1000px)', medium: '(min-width: 800px)' } -]`,
   case3: `[case3 - picture.extend: false -]`,
   case4: `[case4 - case 2 + 3 -]`,
   case5: `[case5 - responsiveSrcReplace: 320 -]`,
   case6: `[case6 - responsive: true -]`,
   case7: `[case7 - responsive: true, responsiveWidth: [320, 640, 900] -]`,
-  case7: `[case7 - case 2 + 7 -]`
+  case8: `[case8 - case 2 + 7 -]`
 };
 
-test(`${pfx} Resolution check. use ${txt.case1} `, t => {
+const num = (() => {
+  let current = 1;
+  return () => current++;
+})();
+
+test(`${pfx} No:${num()}. Resolution check. use ${txt.case1} `, t => {
   const html = `
 <picture>
   <source src="path/to/filename-large.png" media="large" srcset="1x, 2x, 3x">
@@ -76,7 +75,7 @@ test(`${pfx} Resolution check. use ${txt.case1} `, t => {
   t.end();
 });
 
-test(`${pfx} Resolution check. use ${txt.case2} `, t => {
+test(`${pfx} No:${num()}. Resolution check. use ${txt.case2} `, t => {
   const html = `
 <picture>
   <source src="path/to/filename-large.png" media="large" srcset="1x, 2x, 3x">
@@ -95,7 +94,7 @@ test(`${pfx} Resolution check. use ${txt.case2} `, t => {
   t.end();
 });
 
-test(`${pfx} Resolution check. use ${txt.case3} `, t => {
+test(`${pfx} No:${num()}. Resolution check. use ${txt.case3} `, t => {
   const html = `
 <picture>
   <source src="path/to/filename-large.png" media="large" srcset="1x, 2x, 3x">
@@ -114,7 +113,7 @@ test(`${pfx} Resolution check. use ${txt.case3} `, t => {
   t.end();
 });
 
-test(`${pfx} Resolution check. use ${txt.case4} `, t => {
+test(`${pfx} No:${num()}. Resolution check. use ${txt.case4} `, t => {
   const html = `
 <picture>
   <source src="path/to/filename-large.png" media="large" srcset="1x, 2x, 3x">
@@ -134,7 +133,7 @@ test(`${pfx} Resolution check. use ${txt.case4} `, t => {
 });
 
 
-test(`${pfx} Resolution check. No src. use ${txt.case1} `, t => {
+test(`${pfx} No:${num()}. Resolution check. No src. use ${txt.case1} `, t => {
   const html = `
 <picture>
   <source media="large" srcset="1x, 2x, 3x">
@@ -153,7 +152,7 @@ test(`${pfx} Resolution check. No src. use ${txt.case1} `, t => {
   t.end();
 });
 
-test(`${pfx} Resolution check. No src. use ${txt.case2} `, t => {
+test(`${pfx} No:${num()}. Resolution check. No src. use ${txt.case2} `, t => {
   const html = `
 <picture>
   <source media="large" srcset="1x, 2x, 3x">
@@ -172,7 +171,7 @@ test(`${pfx} Resolution check. No src. use ${txt.case2} `, t => {
   t.end();
 });
 
-test(`${pfx} Resolution check. No src. use ${txt.case3} `, t => {
+test(`${pfx} No:${num()}. Resolution check. No src. use ${txt.case3} `, t => {
   const html = `
 <picture>
   <source media="large" srcset="1x, 2x, 3x">
@@ -191,7 +190,7 @@ test(`${pfx} Resolution check. No src. use ${txt.case3} `, t => {
   t.end();
 });
 
-test(`${pfx} Resolution check. No src. use ${txt.case4} `, t => {
+test(`${pfx} No:${num()}. Resolution check. No src. use ${txt.case4} `, t => {
   const html = `
 <picture>
   <source media="large" srcset="1x, 2x, 3x">
@@ -210,7 +209,7 @@ test(`${pfx} Resolution check. No src. use ${txt.case4} `, t => {
   t.end();
 });
 
-test(`${pfx} Resolution check. extend. use ${txt.case1} `, t => {
+test(`${pfx} No:${num()}. Resolution check. extend. use ${txt.case1} `, t => {
   const html = `
 <picture>
   <source src="path/to/filename-large@3x.png" media="large">
@@ -230,7 +229,7 @@ test(`${pfx} Resolution check. extend. use ${txt.case1} `, t => {
 });
 
 
-test(`${pfx} Responsive check. use ${txt.case1} `, t => {
+test(`${pfx} No:${num()}. Responsive check. use ${txt.case1} `, t => {
   const html = `
 <picture>
   <source src="path/to/filename-large.png" media="large" srcset="320w, 640w, 900w">
@@ -249,7 +248,7 @@ test(`${pfx} Responsive check. use ${txt.case1} `, t => {
   t.end();
 });
 
-test(`${pfx} Responsive check. use ${txt.case2} `, t => {
+test(`${pfx} No:${num()}. Responsive check. use ${txt.case2} `, t => {
   const html = `
 <picture>
   <source src="path/to/filename-large.png" media="large" srcset="320w, 640w, 900w">
@@ -268,7 +267,7 @@ test(`${pfx} Responsive check. use ${txt.case2} `, t => {
   t.end();
 });
 
-test(`${pfx} Responsive check. use ${txt.case5} `, t => {
+test(`${pfx} No:${num()}. Responsive check. use ${txt.case5} `, t => {
   const html = `
 <picture>
   <source src="path/to/filename-large.png" media="large" srcset="320w, 640w, 900w">
@@ -287,7 +286,7 @@ test(`${pfx} Responsive check. use ${txt.case5} `, t => {
   t.end();
 });
 
-test(`${pfx} Responsive check. No src. use ${txt.case1} `, t => {
+test(`${pfx} No:${num()}. Responsive check. No src. use ${txt.case1} `, t => {
   const html = `
 <picture>
   <source media="large" srcset="320w, 640w, 900w">
@@ -306,7 +305,7 @@ test(`${pfx} Responsive check. No src. use ${txt.case1} `, t => {
   t.end();
 });
 
-test(`${pfx} Responsive check. No src. use ${txt.case5} `, t => {
+test(`${pfx} No:${num()}. Responsive check. No src. use ${txt.case5} `, t => {
   const html = `
 <picture>
   <source media="large" srcset="320w, 640w, 900w">
@@ -325,7 +324,7 @@ test(`${pfx} Responsive check. No src. use ${txt.case5} `, t => {
   t.end();
 });
 
-test(`${pfx} Responsive check. extend. use ${txt.case1} `, t => {
+test(`${pfx} No:${num()}. Responsive check. extend. use ${txt.case1} `, t => {
   const html = `
 <picture>
   <source src="path/to/filename-large-640w.png" media="large">
@@ -344,7 +343,7 @@ test(`${pfx} Responsive check. extend. use ${txt.case1} `, t => {
   t.end();
 });
 
-test(`${pfx} Responsive check. extend. use ${txt.case6} `, t => {
+test(`${pfx} No:${num()}. Responsive check. extend. use ${txt.case6} `, t => {
   const html = `
 <picture>
   <source src="path/to/filename-large-640w.png" media="large">
@@ -363,7 +362,7 @@ test(`${pfx} Responsive check. extend. use ${txt.case6} `, t => {
   t.end();
 });
 
-test(`${pfx} Responsive check. extend. use ${txt.case7} `, t => {
+test(`${pfx} No:${num()}. Responsive check. extend. use ${txt.case7} `, t => {
   const html = `
 <picture>
   <source src="path/to/filename-large-640w.png" media="large">
@@ -382,7 +381,7 @@ test(`${pfx} Responsive check. extend. use ${txt.case7} `, t => {
   t.end();
 });
 
-test(`${pfx} Responsive check. extend. use ${txt.case8} `, t => {
+test(`${pfx} No:${num()}. Responsive check. extend. use ${txt.case8} `, t => {
   const html = `
 <picture>
   <source src="path/to/filename-large-640w.png" media="large">

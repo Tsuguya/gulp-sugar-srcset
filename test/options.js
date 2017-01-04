@@ -13,8 +13,8 @@ test(`Options test { responsive: { srcset: false }}`, t => {
   t.end();
 });
 
-test(`Options test { sizes: { foo: 'test' }}`, t => {
-  const opt = options({ sizes: { foo: 'test' }});
-  t.deepEqual(opt.sizes, { add: '', foo: 'test' });
+test(`Options test { replace: { foo: 'test' }}`, t => {
+  const opt = options({ replace: { foo: 'test' }});
+  t.deepEqual(opt.replace, { foo: 'test' });
   t.end();
 });

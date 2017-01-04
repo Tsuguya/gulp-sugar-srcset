@@ -23,15 +23,15 @@ const case4 = Object.assign({}, case1, {
 });
 
 const case5 = Object.assign({}, case1, {
-  sizes: { add: '(max-width: 700px) 50vw, 700px' }
+  replace: { defaultSizes: '(max-width: 700px) 50vw, 700px' }
 });
 
 const case6 = Object.assign({}, case1, {
-  sizes: { add: '', test: '(max-width: 700px) 50vw', test2: '(max-width: 1000px) 80vw', test3: '500px' }
+  replace: { test: '(max-width: 700px) 50vw', test2: '(max-width: 1000px) 80vw', test3: '500px' }
 });
 
 const case7 = Object.assign({}, case1, {
-  sizes: { add: '(max-width: 700px) 50vw, 700px', test: '(max-width: 700px) 50vw', test2: '(max-width: 1000px) 80vw', test3: '500px' }
+  replace: { defaultSizes: '(max-width: 700px) 50vw, 700px', test: '(max-width: 700px) 50vw', test2: '(max-width: 1000px) 80vw', test3: '500px' }
 });
 
 const txt = {
@@ -39,8 +39,8 @@ const txt = {
   case2: `[case2 - responsiveSrcReplace: 640 -]`,
   case3: `[case3 - responsiveSrcReplace: -1 -]`,
   case4: `[case4 - responsive: { src: true, srcset: false } -]`,
-  case5: `[case5 - sizes: { add: '(max-width: 700px) 50vw,700px' } -]`,
-  case6: `[case6 - sizes: { add: '', test: '(max-width: 700px) 50vw', test2: '(max-width: 1000px) 80vw', test3: '500px' } -]`,
+  case5: `[case5 - replace: { defaultSizes: '(max-width: 700px) 50vw,700px' } -]`,
+  case6: `[case6 - replace: { test: '(max-width: 700px) 50vw', test2: '(max-width: 1000px) 80vw', test3: '500px' } -]`,
   case7: `[case7 - case 5 + 6 -]`
 };
 

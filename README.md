@@ -118,41 +118,6 @@ srcset({
 Type: `string`<br>
 Default: `-[match]w`
 
-#### sizes
-
-Type: `Object`<br>
-Default: `{ add: '' }`
-
-Is the alias that can be used in sizes.<br>
-"add" value you put in will be added when there are no sizes, or empty.
-
-ex)
-
-``` js
-srcset({
-    sizes: {
-        add: '50vw',
-        sp: '(max-width: 320px) 100vw',
-        pc: '320px'
-    }
-})
-```
-
-Before
-
-```html
-<img src="path/to/image.png" srcset="320w, 640w" alt="">
-<img src="path/to/image.png" sizes="sp, pc" srcset="320w, 640w" alt="">
-```
-
-After
-
-```html
-<img src="path/to/image.png" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="" sizes="50vw">
-<img src="path/to/image.png" sizes="(max-width: 320px) 100vw,320px" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="">
-```
-
-
 #### responsiveSrcReplace
 
 Type: `number`<br>
@@ -165,28 +130,31 @@ Default: `false`
 
 If true, removing the src attribute from the image tag
 
-#### picture.media
+#### replace
 
 Type: `Object`<br>
 Default: `{}`
 
-Is the alias that can be used in media.<br>
+Is the alias that can be used in sizes and media.<br>
 Valid only in the source tag with a picture tag to the parent.
 
 ex)
 
 ``` js
-srcset({
-    media: {
-        large: '(max-width: 1600px)',
-        medium: '(max-width: 900px)'
-    }
+replace({
+    defaultSizes: '50vw',
+    sp: '(max-width: 320px) 100vw',
+    pc: '320px'
+    large: '(max-width: 1600px)',
+    medium: '(max-width: 900px)'
 })
 ```
 
 Before
 
 ```html
+<img src="path/to/image.png" srcset="320w, 640w" alt="">
+<img src="path/to/image.png" sizes="sp, pc" srcset="320w, 640w" alt="">
 <picture>
   <source src="image-large.png" media="large">
   <source src="image-medium.png" media="medium">
@@ -197,10 +165,12 @@ Before
 After
 
 ```html
+<img src="path/to/image.png" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="" sizes="50vw">
+<img src="path/to/image.png" sizes="(max-width: 320px) 100vw,320px" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="">
 <picture>
   <source media="(max-width: 1600px)" srcset="image-large.png,image-large@2x.png 2x,image-large@3x.png 3x,image-large@4x.png 4x">
   <source media="(max-width: 900px)" srcset="image-medium.png,image-medium.png@2x 2x,image-medium.png@3x 3x,image-medium.png@4x 4x">
-  <img src="image.png" alt="" srcset="image@2x.png 2x,image@2x.png 3x,image@2x.png 4x">
+  rc="image.png" alt="" srcset="image@2x.png 2x,image@3x.png 3x,image@4x.png 4x">
 </picture>
 ```
 
