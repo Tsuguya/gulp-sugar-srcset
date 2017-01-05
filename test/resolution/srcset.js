@@ -40,7 +40,7 @@ const case7 = options({
 
 const txt = {
   case1: `[case1]`,
-  case2: `[case2 - resolution.se -]`,
+  case2: `[case2 - resolution.skip1x: false -]`,
   case3: `[case3 - resolution.skip1xSuffix: false -]`,
   case4: `[case4 - case 2 + 3 -]`,
   case5: `[case5 - resolution.srcReplace: -1 -]`,

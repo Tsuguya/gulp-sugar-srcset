@@ -22,18 +22,22 @@ const case4 = options({
   sourceSrc: false
 });
 const case5 = options({
-  responsiveSrcReplace: 320
+  responsive: { srcReplace: 320 }
 });
 const case6 = options({
-  responsive: true
+  responsive: { src: true }
 });
 const case7 = options({
-  responsive: true,
-  responsiveWidth: [320, 640, 900]
+  responsive: {
+    src: true,
+    width: [320, 640, 900]
+  },
 });
 const case8 = options({
-  responsive: true,
-  responsiveWidth: [320, 640, 900],
+  responsive: {
+    src: true,
+    width: [320, 640, 900],
+  },
   replace: {
     large: '(min-width: 1000px)',
     medium: '(min-width: 800px)'

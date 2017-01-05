@@ -88,27 +88,36 @@ Default: `[1, 2, 3, 4]`
 
 src based filtering list.
 
-#### resolution.skip1x
+##### resolution.skip1x
 
 Type: `boolean`
 
 If srcset is 1x, omitted.
 
-#### resolution.skip1xSuffix
+##### resolution.skip1xSuffix
 
 Type: `boolean`
 
-#### resolution.srcReplace
+##### resolution.srcReplace
 
 Type: `number`
 Default: `1`
 
 #### responsive
 
-Type: `Object`<br>
-Default: `{ src: true, srcset: false }`
+Type: `Object`
 
-#### responsiveWidth
+##### responsive.src
+
+Type: `boolean`<br>
+Default: `true`
+
+##### responsive.srcset
+
+Type: `boolean`<br>
+Default: `false`
+
+##### responsive.width
 
 Type: `Array`<br>
 Default `[]`
@@ -124,12 +133,12 @@ srcset({
 })
 ```
 
-#### responsiveSuffix
+##### responsive.suffix
 
 Type: `string`<br>
 Default: `-[match]w`
 
-#### responsiveSrcReplace
+##### responsive.srcReplace
 
 Type: `number`<br>
 Default: `-1`

@@ -18,7 +18,14 @@ test(`Options test { resolution: { src: false }}`, t => {
 
 test(`Options test { responsive: { srcset: false }}`, t => {
   const opt = options({ responsive: { srcset: false }});
-  t.deepEqual(opt.responsive, { src: false, srcset: false });
+  t.deepEqual(opt.responsive, {
+    suffix: '-[match]w',
+    width: [],
+    srcReplace: -1,
+
+    src: false,
+    srcset: false
+  });
   t.end();
 });
 
