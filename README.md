@@ -100,7 +100,7 @@ Type: `boolean`
 
 ##### resolution.srcReplace
 
-Type: `number`
+Type: `number`<br>
 Default: `1`
 
 #### responsive
@@ -194,7 +194,9 @@ After
 </picture>
 ```
 
-#### sourceSrcType: `boolean`<br>
+#### sourceSrc
+
+Type: `boolean`<br>
 Default: `true`
 
 If you true, to use the src attribute of the source tag.<br>
