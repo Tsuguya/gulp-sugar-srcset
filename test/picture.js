@@ -12,14 +12,14 @@ const case2 = options({
   }
 });
 const case3 = options({
-  picture: { extend: false }
+  sourceSrc: false
 });
 const case4 = options({
   replace: {
     large: '(min-width: 1000px)',
     medium: '(min-width: 800px)'
   },
-  picture: { extend: false }
+  sourceSrc: false
 });
 const case5 = options({
   responsiveSrcReplace: 320
@@ -43,7 +43,7 @@ const case8 = options({
 const txt = {
   case1: `[case1]`,
   case2: `[case2 - replace: { large: '(min-width: 1000px)', medium: '(min-width: 800px)' } -]`,
-  case3: `[case3 - picture.extend: false -]`,
+  case3: `[case3 - sourceSrc: false -]`,
   case4: `[case4 - case 2 + 3 -]`,
   case5: `[case5 - responsiveSrcReplace: 320 -]`,
   case6: `[case6 - responsive: true -]`,

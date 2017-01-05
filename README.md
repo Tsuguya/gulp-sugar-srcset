@@ -170,11 +170,11 @@ After
 <picture>
   <source media="(max-width: 1600px)" srcset="image-large.png,image-large@2x.png 2x,image-large@3x.png 3x,image-large@4x.png 4x">
   <source media="(max-width: 900px)" srcset="image-medium.png,image-medium.png@2x 2x,image-medium.png@3x 3x,image-medium.png@4x 4x">
-  rc="image.png" alt="" srcset="image@2x.png 2x,image@3x.png 3x,image@4x.png 4x">
+  <img src="image.png" alt="" srcset="image@2x.png 2x,image@3x.png 3x,image@4x.png 4x">
 </picture>
 ```
 
-#### picture.extend
+#### sourceSrc
 
 Type: `boolean`<br>
 Default: `true`
