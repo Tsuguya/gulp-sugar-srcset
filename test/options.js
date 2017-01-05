@@ -3,7 +3,16 @@ const options = require('../lib/options');
 
 test(`Options test { resolution: { src: false }}`, t => {
   const opt = options({ resolution: { src: false }});
-  t.deepEqual(opt.resolution, { src: false, srcset: true });
+  t.deepEqual(opt.resolution, {
+    suffix: '@[match]x',
+    pixelRatio: [1, 2, 3, 4],
+    skip1x: true,
+    skip1xSuffix: true,
+    srcReplace: 1,
+
+    src: false,
+    srcset: true
+  });
   t.end();
 });
 

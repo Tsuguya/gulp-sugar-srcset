@@ -60,34 +60,45 @@ It is the quickest to refer to [test case](https://github.com/Tsuguya/gulp-sugar
 
 #### resolution
 
-Type: `Object`<br>
-Default: `{ src: true, srcset: true }`
+Type: `Object`
+
+#### resolution.src
+
+Type: `boolean`<br>
+Default: `true`
 
 Do not check for display pixel ratio when the false.
 
-#### resolutionSuffix
+#### resolution.srcset
+
+Type: `boolean`<br>
+Default: `true`
+
+Do not check for display pixel ratio when the false.
+
+##### resolution.suffix
 
 Type: `string`<br>
 Default: `@[match]x`
 
-#### pixelRatio
+##### resolution.pixelRatio
 
 Type: `Array`<br>
 Default: `[1, 2, 3, 4]`
 
 src based filtering list.
 
-#### skip1x
+#### resolution.skip1x
 
 Type: `boolean`
 
 If srcset is 1x, omitted.
 
-#### skip1xSuffix
+#### resolution.skip1xSuffix
 
 Type: `boolean`
 
-#### resolutionSrcReplace
+#### resolution.srcReplace
 
 Type: `number`
 Default: `1`
@@ -174,9 +185,7 @@ After
 </picture>
 ```
 
-#### sourceSrc
-
-Type: `boolean`<br>
+#### sourceSrcType: `boolean`<br>
 Default: `true`
 
 If you true, to use the src attribute of the source tag.<br>
