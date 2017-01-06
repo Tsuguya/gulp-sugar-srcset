@@ -50,7 +50,7 @@ const srcset = require('gulp-sugar-srcset');
 gulp.task('sugar-srcset', () =>
   gulp.src(html)
     .pipe(srcset())
-    .pipe(gulp.dest(output);
+    .pipe(gulp.dest(output))
 );
 ```
 
