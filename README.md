@@ -14,30 +14,30 @@ $ npm install --save-dev gulp-sugar-srcset
 ## How it works
 
 ```html
-<img src="path/to/image.png" srcset="2x, 3x" alt="">
-<img src="path/to/image@2x.png" alt="">
+<img src="path/to/image.png" srcset="2x, 3x" alt="Text representation of image.">
+<img src="path/to/image@2x.png" alt="Text representation of image.">
 
-<img src="path/to/image-320w.png" sizes="100vw" srcset="320w, 640w, 980w" alt="">
+<img src="path/to/image-320w.png" sizes="100vw" srcset="320w, 640w, 980w" alt="Text representation of image.">
 
 <picture>
   <source src="path/to/filename-large.png" media="(min-width: 1000px)" srcset="1x, 2x, 3x">
   <source src="path/to/filename-medium.png" media="(min-width: 800px)" srcset="1x, 2x, 3x">
-  <img src="path/to/filename-small.png" srcset="1x, 2x, 3x" alt="">
+  <img src="path/to/filename-small.png" srcset="1x, 2x, 3x" alt="Text representation of image.">
 </picture>
 ```
 
 Output:
 
 ```html
-<img src="path/to/image.png" srcset="path/to/image@2x.png 2x,path/to/image@3x.png 3x" alt="">
-<img src="path/to/image.png" srcset="path/to/image@2x.png 2x" alt="">
+<img src="path/to/image.png" srcset="path/to/image@2x.png 2x,path/to/image@3x.png 3x" alt="Text representation of image.">
+<img src="path/to/image.png" srcset="path/to/image@2x.png 2x" alt="Text representation of image.">
 
-<img src="path/to/image-320w.png" sizes="100vw" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w,path/to/image-980w.png 980w" alt="">
+<img src="path/to/image-320w.png" sizes="100vw" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w,path/to/image-980w.png 980w" alt="Text representation of image.">
 
 <picture>
   <source media="(min-width: 1000px)" srcset="path/to/filename-large.png,path/to/filename-large@2x.png 2x,path/to/filename-large@3x.png 3x">
   <source media="(min-width: 800px)" srcset="path/to/filename-medium.png,path/to/filename-medium@2x.png 2x,path/to/filename-medium@3x.png 3x">
-  <img src="path/to/filename-small.png" srcset="path/to/filename-small@2x.png 2x,path/to/filename-small@3x.png 3x" alt="">
+  <img src="path/to/filename-small.png" srcset="path/to/filename-small@2x.png 2x,path/to/filename-small@3x.png 3x" alt="Text representation of image.">
 </picture>
 ```
 
@@ -173,24 +173,24 @@ replace({
 Before
 
 ```html
-<img src="path/to/image.png" srcset="320w, 640w" alt="">
-<img src="path/to/image.png" sizes="sp, pc" srcset="320w, 640w" alt="">
+<img src="path/to/image.png" srcset="320w, 640w" alt="Text representation of image.">
+<img src="path/to/image.png" sizes="sp, pc" srcset="320w, 640w" alt="Text representation of image.">
 <picture>
   <source src="image-large.png" media="large">
   <source src="image-medium.png" media="medium">
-  <img src="image.png" alt="" srcset="2x, 3x, 4x">
+  <img src="image.png" alt="Text representation of image." srcset="2x, 3x, 4x">
 </picture>
 ```
 
 After
 
 ```html
-<img src="path/to/image.png" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="" sizes="50vw">
-<img src="path/to/image.png" sizes="(max-width: 320px) 100vw,320px" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="">
+<img src="path/to/image.png" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="Text representation of image." sizes="50vw">
+<img src="path/to/image.png" sizes="(max-width: 320px) 100vw,320px" srcset="path/to/image-320w.png 320w,path/to/image-640w.png 640w" alt="Text representation of image.">
 <picture>
   <source media="(max-width: 1600px)" srcset="image-large.png,image-large@2x.png 2x,image-large@3x.png 3x,image-large@4x.png 4x">
   <source media="(max-width: 900px)" srcset="image-medium.png,image-medium.png@2x 2x,image-medium.png@3x 3x,image-medium.png@4x 4x">
-  <img src="image.png" alt="" srcset="image@2x.png 2x,image@3x.png 3x,image@4x.png 4x">
+  <img src="image.png" alt="Text representation of image." srcset="image@2x.png 2x,image@3x.png 3x,image@4x.png 4x">
 </picture>
 ```
 
