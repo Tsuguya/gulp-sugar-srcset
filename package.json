@@ -1,6 +1,6 @@
 {
   "name": "gulp-sugar-srcset",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "This shortens the description of the value of srcset.",
   "main": "lib/index.js",
   "repository": {
