@@ -1,3 +1,10 @@
+# DEPRECATED
+
+Please use [posthtml-sugar-srcset](https://github.com/Tsuguya/posthtml-sugar-srcset).  
+This plugin internally uses cheerio, but it does not guarantee that it is the same HTML.  
+
+
+
 # gulp-sugar-srcset
 
 [![npm version](https://badge.fury.io/js/gulp-sugar-srcset.svg)](https://badge.fury.io/js/gulp-sugar-srcset)

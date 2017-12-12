@@ -1,6 +1,6 @@
 {
   "name": "gulp-sugar-srcset",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "This shortens the description of the value of srcset.",
   "main": "lib/index.js",
   "repository": {
@@ -19,11 +19,6 @@
     "test-responsive-src": "tape 'test/responsive/src.js' | tap-diff || true",
     "test-responsive-srcset": "tape 'test/responsive/srcset.js' | tap-diff || true"
   },
-  "keywords": [
-    "gulpplugin",
-    "srcset",
-    "picture"
-  ],
   "author": "Tsuguya Toma",
   "license": "MIT",
   "bugs": {
